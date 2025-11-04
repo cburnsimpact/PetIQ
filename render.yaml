@@ -21,9 +21,9 @@ services:
       - key: AZURE_OPENAI_API_VERSION
         value: 2024-02-15-preview
 
-  - type: static
+  - type: static_site
     name: petiq-client
     rootDir: client
     buildCommand: npm install --no-audit --no-fund && npm run build
-    staticPublishPath: dist
+    publishPath: dist
 
