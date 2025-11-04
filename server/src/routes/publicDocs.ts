@@ -102,7 +102,7 @@ publicDocsRouter.get('/view/:name', async (req, res) => {
     const lower = name.toLowerCase()
     let bodyHtml = ''
     if (lower.endsWith('.md') || lower.endsWith('.markdown')) {
-      bodyHtml = marked.parse(content)
+      bodyHtml = await marked.parse(content)
     } else {
       // Treat as plain text; convert double newlines to paragraphs, single to <br>
       const escaped = escapeHtml(content)

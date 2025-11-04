@@ -20,7 +20,6 @@ verificationRouter.post('/initiate', async (req, res) => {
     await auditService.log({
       action: 'VERIFICATION_INITIATED',
       email,
-      timestamp: new Date(),
       metadata: { email },
     })
 
@@ -46,7 +45,6 @@ verificationRouter.post('/verify', async (req, res) => {
     await auditService.log({
       action: verified ? 'VERIFICATION_SUCCESS' : 'VERIFICATION_FAILED',
       email,
-      timestamp: new Date(),
       metadata: { email, success: verified },
     })
 

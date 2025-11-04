@@ -30,7 +30,6 @@ chatRouter.post('/', async (req, res) => {
       action: 'MESSAGE_RECEIVED',
       email,
       conversationId: convId,
-      timestamp: new Date(),
       metadata: { message: message.substring(0, 100), userType }, // Truncate for logging
     })
 
@@ -51,7 +50,6 @@ chatRouter.post('/', async (req, res) => {
       action: 'MESSAGE_RESPONDED',
       email,
       conversationId: convId,
-      timestamp: new Date(),
       metadata: { 
         responseLength: response.response.length,
         category: response.category,
