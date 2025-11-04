@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: petiq-server
+    env: node
+    rootDir: server
+    buildCommand: npm install --no-audit --no-fund && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: NPM_CONFIG_PRODUCTION
+        value: "false"
+      - key: AZURE_OPENAI_ENDPOINT
+        sync: false
+      - key: AZURE_OPENAI_API_KEY
+        sync: false
+      - key: AZURE_OPENAI_DEPLOYMENT_NAME
+        sync: false
+      - key: AZURE_OPENAI_API_VERSION
+        value: 2024-02-15-preview
+
+  - type: static
+    name: petiq-client
+    rootDir: client
+    buildCommand: npm install --no-audit --no-fund && npm run build
+    staticPublishPath: dist
+
