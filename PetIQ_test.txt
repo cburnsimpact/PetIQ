@@ -1,0 +1,55 @@
+HR Chatbot POC Plan — Pet IQ
+Phase 1: Foundational Proof of Concept (Pre-Lyric Data)
+Goal: Demonstrate the feasibility and complexity of an HR chatbot that can operate within Pet IQ’s unique environment, serving as a technical foundation for future production deployment.
+Objectives:
+•	Validate chatbot functionality in handling HR-related inquiries.
+•	Demonstrate secure identity verification for users communicating via personal email.
+•	Show backend workflow logic (intake, triage, and response) without dependency on Lyric HR data.
+•	Establish a technical baseline for production readiness.
+Tasks
+1.	Environment Setup
+•	Configure sandbox environment replicating Pet IQ’s communication realities (limited Teams/computer usage).
+•	Set up mocked HR data or sample datasets for demonstration.
+2.	Chatbot Prototype Development
+•	Develop front-end conversational interface (Teams or web-based).
+•	Create logic to recognize and respond to HR-related requests.
+•	Implement multi-step user verification for personal email addresses.
+3.	Backend and Automation
+•	Build triage logic for handling inbound HR messages from non-domain emails.
+•	Simulate routing and response workflows to HR support queues.
+•	Implement audit logging and status tracking for inquiries.
+4.	Demonstration and Review
+•	Present live demonstration showing:
+o	Identity verification process.
+o	Handling of personal email communications.
+o	Triage and response flow.
+o	Educate stakeholders on solution complexity and production requirements.
+5.	Documentation
+•	Technical setup guide for chatbot and backend components.
+•	Flow diagrams showing user identity verification and data handling.
+•	Outline of potential production migration path.
+ 
+Phase 2: Integrated Proof of Concept (Post-Lyric Data Availability)
+Goal: Enhance the chatbot to connect directly with HR data systems (e.g., Lyric) for real-time employee information and process automation.
+Objectives
+•	Integrate with live HR data sources for employee validation, record access, and updates.
+•	Demonstrate two-way data flow and automation for HR tasks.
+•	Transition from mocked logic to production-grade data and security handling.
+Tasks
+1.	Data Integration
+•	Connect chatbot backend to Lyric and other HR systems via secure APIs.
+•	Enable lookup and validation of employee information (status, eligibility, benefits).
+2.	Process Automation
+•	Enable chatbot-driven self-service workflows (e.g., “Request PTO,” “Update Address,” “View Benefits”).
+•	Add adaptive responses based on real HR data.
+3.	Security and Compliance
+•	Enforce identity verification tied to employee records.
+•	Implement role-based access controls.
+•	Validate data retention and audit policies for HR data.
+4.	Performance and Load Testing
+•	Assess scalability and concurrency under real usage conditions.
+•	Optimize chatbot response time and reliability.
+5.	Production Transition Plan
+•	Finalize documentation for deployment into Pet IQ’s environment.
+•	Define support model, ownership, and training for internal HR/IT teams.
+•	Deliver final recommendation for go-live readiness.

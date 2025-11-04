@@ -1,0 +1,108 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal {
+  width: min(640px, calc(100vw - 2rem));
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-header h3 {
+  margin: 0;
+}
+
+.modal-body {
+  padding: 1rem;
+}
+
+.email-form .form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin-bottom: 0.875rem;
+}
+
+.email-form label {
+  color: #374151;
+  font-weight: 600;
+}
+
+.email-form input,
+.email-form textarea {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.email-form input:focus,
+.email-form textarea:focus {
+  border-color: #667eea;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.actions .secondary {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #111827;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.actions .secondary:hover {
+  background: #f8fafc;
+}
+
+.actions .primary {
+  background: #667eea;
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.actions .primary:hover {
+  background: #5568d3;
+}
+
+.sent-state {
+  display: grid;
+  place-items: center;
+  gap: 0.5rem;
+  padding: 2rem 1rem;
+  color: #065f46;
+}
+
+.sent-icon {
+  font-size: 2rem;
+}
+
+
+

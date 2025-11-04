@@ -1,0 +1,226 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.corner-logo {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 900;
+}
+
+.corner-logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.app-header .brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.app-header .logo {
+  height: 40px;
+  width: auto;
+}
+
+.app-header h1 {
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+}
+
+.app-header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.app-main {
+  flex: 1;
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.welcome-section {
+  background: white;
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-section h2 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.welcome-section > p {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #f7941d;
+}
+
+.feature-card h3 {
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.5;
+}
+
+.policy-docs {
+  margin-top: 2.5rem;
+}
+
+.policy-docs h3 {
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.policy-docs a {
+  color: #334155;
+  text-decoration: none;
+}
+
+.policy-docs a:hover {
+  text-decoration: underline;
+}
+
+/* Scrollable two-column policy list */
+.policy-list {
+  max-height: 320px;
+  overflow-y: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.policy-row {
+  display: grid;
+  grid-template-columns: 1.4fr 2fr;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  align-items: start;
+}
+
+.policy-row:last-child {
+  border-bottom: none;
+}
+
+.policy-name {
+  font-weight: 500;
+}
+
+.policy-desc {
+  color: #475569;
+}
+
+/* FAQ section */
+.faq {
+  margin-top: 3rem;
+}
+
+.faq h3 {
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.faq-list {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.faq-item {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #111827;
+}
+
+.faq-item div {
+  margin-top: 0.5rem;
+  color: #374151;
+  line-height: 1.5;
+}
+
+/* Contact HR CTA */
+.contact-hr-cta {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.email-hr-cta {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #111827;
+  padding: 0.8rem 1.2rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.email-hr-cta:hover {
+  background: #f8fafc;
+}
+
+@media (max-width: 768px) {
+  .app-header h1 {
+    font-size: 2rem;
+  }
+
+  .welcome-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .corner-logo img {
+    height: 32px;
+  }
+}
+

@@ -1,0 +1,112 @@
+.login-container {
+	max-width: 420px;
+	margin: 0 auto;
+	background: #ffffff;
+	border-radius: 8px;
+	box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+	padding: 24px;
+}
+
+.login-page { }
+
+.login-form {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.login-form label {
+	font-weight: 600;
+}
+
+.login-form input[type="email"] {
+	padding: 10px 12px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	font-size: 14px;
+}
+
+.login-form button {
+	padding: 10px 12px;
+	background: #2563eb;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-weight: 600;
+}
+
+.login-form button:disabled {
+	background: #94a3b8;
+	cursor: default;
+}
+
+.login-error {
+	color: #b91c1c;
+	background: #fee2e2;
+	border: 1px solid #fecaca;
+	padding: 8px 10px;
+	border-radius: 6px;
+	font-size: 14px;
+}
+
+.login-secondary {
+	margin-top: 12px;
+	background: transparent;
+	color: #2563eb;
+	border: 1px solid #2563eb;
+	border-radius: 6px;
+	padding: 8px 10px;
+	cursor: pointer;
+}
+
+.employee-list {
+	margin-top: 16px;
+	background: #f8fafc;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	padding: 12px;
+}
+
+.employee-list-wide {
+	max-width: 960px;
+	margin: 16px auto 0;
+}
+
+.employee-list table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px solid #e2e8f0;
+}
+
+.employee-list th,
+.employee-list td {
+	text-align: left;
+	border-bottom: 1px solid #e2e8f0;
+	padding: 8px 10px;
+	font-size: 14px;
+}
+
+.employee-list thead th {
+	font-weight: 700;
+	background: #eef2f7;
+}
+
+.employee-list tbody tr:nth-child(even) {
+	background: #f1f5f9;
+}
+
+/* make email columns readable and avoid awkward wrapping */
+.employee-list td:nth-child(3),
+.employee-list td:nth-child(4) {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+	white-space: nowrap;
+}
+
+.demo-note {
+	margin-top: 8px;
+	font-size: 12px;
+	color: #64748b;
+}
+
+
