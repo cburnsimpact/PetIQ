@@ -35,6 +35,16 @@ app.use('/docs', publicDocsRouter)
 const docsDir = path.join(process.cwd(), '..', 'PetIQ HR Docs')
 app.use('/docs', express.static(docsDir))
 
+// Friendly root route
+app.get('/', (req, res) => {
+  res.json({
+    service: 'PetIQ API',
+    status: 'ok',
+    health: '/api/health',
+    docs: '/docs',
+  })
+})
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`)
 })
