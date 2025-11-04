@@ -6,7 +6,7 @@ import { marked } from 'marked'
 // Create a lightweight router mounted at "/docs" in index.ts
 export const publicDocsRouter = Router()
 
-const DOCS_DIR = path.resolve(process.cwd(), '..', 'PetIQ HR Docs')
+const DOCS_DIR = process.env.HR_DOCS_DIR || path.resolve(process.cwd(), 'docs')
 
 function isSafeFileName(name: string): boolean {
   // Prevent path traversal and only allow simple filenames

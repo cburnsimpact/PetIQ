@@ -6,6 +6,7 @@ import { getUserType } from '../utils/emailUtils.js'
 export const authRouter = Router()
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const DEMO_MODE = process.env.DEMO_MODE === 'true'
 
 authRouter.post('/login', async (req, res) => {
 	try {
@@ -19,8 +20,16 @@ authRouter.post('/login', async (req, res) => {
 			return res.status(401).json({ error: 'Email not recognized. Try your PetIQ email (petiq.com) or your personal email on file.' })
 		}
 
-    // Mark the mapped work email as verified for chat access
-    verificationService.markVerified(workEmail, 60 * 24)
+    if (DEMO_MODE) {
+      // Demo: auto-verify mapped work email for chat access
+      verificationService.markVerified(workEmail, 60 * 24)
+    } else {
+      // Non-demo: require verification initiation and code submission flow
+      const empPending = getEmployeeByAnyEmail(workEmail) || getEmployeeByAnyEmail(email)
+      const firstPending = empPending?.first_name || null
+      return res.status(202).json({ pendingVerification: true, workEmail, firstName: firstPending })
+    }
+
     const userType = getUserType(workEmail)
 
     const emp = getEmployeeByAnyEmail(workEmail) || getEmployeeByAnyEmail(email)
@@ -35,6 +44,9 @@ authRouter.post('/login', async (req, res) => {
 
 // Demo-only: list employees loaded from CSV
 authRouter.get('/employees', async (_req, res) => {
+  if (!DEMO_MODE) {
+    return res.status(404).json({ error: 'Not found' })
+  }
 	try {
 		const rows = listEmployees()
 		return res.json({ employees: rows })

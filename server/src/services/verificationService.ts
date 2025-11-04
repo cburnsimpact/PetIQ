@@ -16,8 +16,9 @@ const MAX_ATTEMPTS = 3
 
 export const verificationService = {
   initiateVerification: async (email: string): Promise<void> => {
+    const demoMode = process.env.DEMO_MODE === 'true'
     // Demo: use fixed code by default; configurable via VERIFICATION_DEMO_CODE
-    const fixed = (process.env.VERIFICATION_DEMO_CODE || '123456').trim()
+    const fixed = demoMode ? (process.env.VERIFICATION_DEMO_CODE || '123456').trim() : ''
     const code = fixed && /^\d{6}$/.test(fixed)
       ? fixed
       : Math.floor(100000 + Math.random() * 900000).toString()
@@ -34,8 +35,10 @@ export const verificationService = {
 
     // In production, send email via service (SendGrid, AWS SES, etc.)
     // For POC/demo, log the code to console
-    console.log(`[POC] Verification code for ${email}: ${code}`)
-    console.log(`[POC] Using fixed demo code (configurable via VERIFICATION_DEMO_CODE)`)    
+    if (demoMode) {
+      console.log(`[POC] Verification code for ${email}: ${code}`)
+      console.log(`[POC] Using fixed demo code (configurable via VERIFICATION_DEMO_CODE)`)    
+    }
 
     // Simulate async email sending
     await new Promise((resolve) => setTimeout(resolve, 500))

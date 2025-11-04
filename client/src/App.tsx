@@ -55,20 +55,7 @@ function App() {
             <p>
               {t('appHome.welcomeBody')}
             </p>
-            <div className="features">
-              <div className="feature-card">
-                <h3>🔒 {t('appHome.featuresSecure')}</h3>
-                <p>{t('appHome.featuresSecureDesc')}</p>
-              </div>
-              <div className="feature-card">
-                <h3>⚡ {t('appHome.featuresFast')}</h3>
-                <p>{t('appHome.featuresFastDesc')}</p>
-              </div>
-              <div className="feature-card">
-                <h3>📋 {t('appHome.featuresComprehensive')}</h3>
-                <p>{t('appHome.featuresComprehensiveDesc')}</p>
-              </div>
-            </div>
+            
 
             <div className="policy-docs">
             <h3>{t('appHome.policyDocs')}</h3>

@@ -13,6 +13,18 @@ services:
         value: 20
       - key: NPM_CONFIG_PRODUCTION
         value: "false"
+      - key: DEMO_MODE
+        value: "true"
+      - key: ENFORCE_HTTPS
+        value: "true"
+      - key: AUDIT_LOG_CONSOLE
+        value: "false"
+      - key: HR_DOCS_DIR
+        value: ./docs
+      - key: EMPLOYEE_CSV_PATH
+        value: ./data/petiq_employee_contacts.csv
+      - key: CORS_ORIGINS
+        value: https://petiq-client.onrender.com
       - key: AZURE_OPENAI_ENDPOINT
         sync: false
       - key: AZURE_OPENAI_API_KEY
@@ -29,4 +41,7 @@ services:
     buildCommand: npm install --no-audit --no-fund && npm run build
     staticPublishPath: dist
     autoDeploy: true
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://petiq-server.onrender.com
 

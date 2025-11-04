@@ -14,16 +14,24 @@ const auditLogs: AuditLog[] = []
 
 export const auditService = {
   log: async (logEntry: Omit<AuditLog, 'id' | 'timestamp'>): Promise<void> => {
+    // Shallow-redact potentially sensitive fields in metadata for in-memory/console logging
+    const safeMetadata: Record<string, any> | undefined = logEntry.metadata
+      ? { ...logEntry.metadata, message: logEntry.metadata.message ? '[redacted]' : logEntry.metadata.message }
+      : undefined
+
     const auditLog: AuditLog = {
       id: uuidv4(),
       timestamp: new Date(),
       ...logEntry,
+      metadata: safeMetadata,
     }
 
     auditLogs.push(auditLog)
 
-    // In production, persist to database
-    console.log('[AUDIT]', JSON.stringify(auditLog, null, 2))
+    // In production, persist to database; console logging gated by env
+    if (process.env.AUDIT_LOG_CONSOLE === 'true') {
+      console.log('[AUDIT]', JSON.stringify(auditLog, null, 2))
+    }
   },
 
   getLogs: async (filters?: {

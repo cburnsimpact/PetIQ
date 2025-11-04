@@ -1,0 +1,272 @@
+PetIQ Remote Work and Telecommuting Policy
+
+Effective Date: January 1, 2025
+Policy Number: HR-310
+
+PURPOSE
+
+This policy establishes guidelines for remote work arrangements at PetIQ. Remote work is a privilege, not a right, and is granted based on business needs and job requirements.
+
+ELIGIBILITY
+
+Employees may be eligible for remote work if they meet the following criteria:
+
+Completed at least 6 months of employment with satisfactory performance
+Job duties can be performed effectively outside the office
+Have demonstrated strong time management and self-discipline
+Have reliable internet connection and appropriate workspace
+Manager approval required
+Positions NOT eligible for remote work:
+
+Roles requiring physical presence (warehouse, shipping, reception)
+Positions handling physical inventory or equipment
+New hires during their first 6 months (except as specifically approved)
+Employees on performance improvement plans
+REMOTE WORK ARRANGEMENTS
+
+Full-Time Remote:
+
+Employee works remotely 5 days per week
+May be required to come to office for meetings, events, or training
+Must live within 50 miles of a PetIQ office or approved location
+Hybrid Schedule:
+
+Employee splits time between office and remote work
+Minimum 2 days in office per week (typically Tuesday-Thursday)
+Remote days must be consistent and pre-approved
+Temporary Remote Work:
+
+Short-term arrangements (e.g., recovery from injury, family emergency)
+Approved on case-by-case basis for up to 30 days
+Can be extended with manager and HR approval
+WORKSPACE REQUIREMENTS
+
+Employees working remotely must maintain:
+
+Dedicated, quiet workspace free from distractions
+Ergonomic setup (desk, chair, proper lighting)
+Secure environment for confidential company information
+High-speed internet connection (minimum 25 Mbps download, 5 Mbps upload)
+Backup power source recommended
+Professional background for video calls
+PetIQ does NOT provide:
+
+Home office furniture
+Internet service reimbursement for local employees
+Utility cost reimbursement
+Renovation or workspace modification costs
+PetIQ PROVIDES:
+
+Laptop computer and necessary software
+Monitor, keyboard, mouse (upon request)
+VPN access and security software
+Cell phone or phone stipend for eligible positions
+EQUIPMENT AND SECURITY
+
+Company Equipment:
+
+All company equipment remains property of PetIQ
+Must be returned immediately upon termination or end of remote work arrangement
+Employees are responsible for care and security of equipment
+Lost, stolen, or damaged equipment must be reported immediately
+No personal use of company equipment by family members
+Security Requirements:
+
+Use company VPN for all work activities
+Keep all software and security patches up to date
+Lock computer when not in use
+No use of public WiFi for work without VPN
+Confidential documents must be stored securely
+Shred or securely dispose of physical documents
+Report any security incidents immediately to IT
+Data Protection:
+
+Comply with all data privacy and security policies
+No storing company data on personal devices
+Use encrypted file sharing methods only
+Follow clean desk policy - no confidential materials visible
+WORK HOURS AND AVAILABILITY
+
+Core Hours:
+
+Remote employees must be available during core business hours: 9:00 AM - 4:00 PM local time
+Respond to emails and messages within 2 hours during core hours
+Attend all required meetings via video conference
+Keep Slack/Teams status updated
+Flexibility:
+
+Work can be performed outside core hours if needed to meet deadlines
+Must coordinate with team for coverage
+Any schedule changes require manager approval
+Time Tracking:
+
+Non-exempt employees must accurately track all hours worked
+Use company time tracking system
+Overtime must be pre-approved by manager
+Take required meal and rest breaks
+COMMUNICATION EXPECTATIONS
+
+Video Presence:
+
+Camera ON for all team meetings and client calls
+Professional appearance required
+Appropriate background or virtual background
+Response Times:
+
+Email: Respond within 4 hours during business hours
+Slack/Teams: Respond within 1 hour during core hours
+Phone: Answer or return calls within 2 hours
+Meeting Participation:
+
+Join meetings on time
+Minimize background noise (use mute when not speaking)
+Actively participate and engage
+Test technology before important meetings
+PERFORMANCE EXPECTATIONS
+
+Remote employees are held to the same performance standards as in-office employees:
+
+Meet all deadlines and productivity goals
+Maintain quality of work
+Participate in team collaboration
+Complete all required training
+Respond promptly to communications
+Attend required in-person meetings/events
+Managers will:
+
+Set clear goals and expectations
+Conduct regular check-ins (at least weekly)
+Provide feedback on performance
+Monitor productivity and deliverables
+Address performance issues promptly
+COMPLIANCE AND LEGAL
+
+Tax and Legal Considerations:
+
+Employees must work from their approved location
+Moving to a new state/location requires HR approval BEFORE relocating
+May affect tax withholding and legal compliance
+International remote work is not permitted without special approval
+Workers' Compensation:
+
+Remote workspace is considered extension of PetIQ office
+Work-related injuries must be reported immediately
+Workers' compensation coverage applies during work hours only
+Liability:
+
+PetIQ is not liable for injuries to family members or visitors
+Homeowners/renters insurance is employee's responsibility
+Maintain safe workspace free from hazards
+REQUESTING REMOTE WORK
+
+To request a remote work arrangement:
+
+Discuss with your direct manager
+Complete Remote Work Request Form
+Submit to manager for approval
+HR review and final approval
+Sign Remote Work Agreement
+IT setup and equipment assignment
+Schedule start date
+Forms available on employee portal under HR > Forms > Remote Work
+
+APPROVAL PROCESS:
+
+Manager reviews and approves/denies
+HR reviews for policy compliance
+IT assesses technical requirements
+Final approval from Department Director for full-time remote
+MODIFICATIONS AND TERMINATION
+
+Remote work arrangements can be modified or terminated:
+
+With 2 weeks' notice for business needs
+Immediately for performance or policy violations
+At employee request with 2 weeks' notice
+When employee changes positions
+During company-wide events or critical projects
+Returning to Office:
+
+Employee must return all equipment or bring to office
+Resume in-office schedule as directed
+Workspace will be assigned based on availability
+EXPENSES AND REIMBURSEMENT
+
+Eligible Expenses (with receipts and pre-approval):
+
+Business-related software or subscriptions
+Office supplies necessary for job duties
+Shipping costs for returning equipment
+Travel to office for required meetings (over 50 miles)
+Non-Reimbursable:
+
+Internet service (for local employees)
+Utilities (electricity, heating/cooling)
+Home office furniture
+Printer/ink for personal convenience
+Coffee, snacks, meals
+Commuting to office (under 50 miles)
+Submit expense reports through employee portal within 30 days.
+
+MONITORING AND PRIVACY
+
+PetIQ may monitor:
+
+Company device usage and activity
+Email and messaging communications
+File access and data transfers
+Login times and productivity metrics
+Video meeting attendance and participation
+Employees have no expectation of privacy when using company equipment or systems.
+
+TRIAL PERIOD
+
+All new remote work arrangements include a 90-day trial period:
+
+Performance and communication will be evaluated
+Arrangement may be modified or terminated
+Employee may request to return to office
+Successful completion leads to ongoing arrangement
+FREQUENTLY ASKED QUESTIONS
+
+Q: Can I work remotely while traveling?
+A: Occasional remote work while traveling within the US may be approved for up to 2 weeks. International work requires special approval.
+
+Q: What if my internet goes down?
+A: You must either come to the office, use mobile hotspot, or take PTO. Extended outages should be reported to your manager immediately.
+
+Q: Can I work from a coffee shop?
+A: Only with VPN and for non-confidential work. Not recommended for calls with sensitive information.
+
+Q: Do I need to take PTO for doctor appointments?
+A: Remote employees follow same PTO policies as in-office employees. Short appointments may be made up within the same week with manager approval.
+
+Q: What if I need to relocate?
+A: Contact HR BEFORE relocating. Relocation may affect your remote work eligibility, compensation, and tax withholding.
+
+POLICY VIOLATIONS
+
+Violations of this policy may result in:
+
+Verbal or written warning
+Suspension of remote work privileges
+Disciplinary action up to and including termination
+Examples of violations:
+
+Falsifying time records
+Security breaches or policy violations
+Poor performance or missed deadlines
+Failure to maintain availability
+Unauthorized location changes
+Inappropriate use of company equipment
+QUESTIONS AND SUPPORT
+
+For questions about remote work:
+
+Policy questions: HR at hr@petiq.com or ext. 2400
+Technical issues: IT Help Desk at ithelpdesk@petiq.com or ext. 3000
+Equipment requests: IT Equipment Request Form on portal
+This policy may be modified at any time at company discretion. Employees will be notified of changes in writing.
+
+
+

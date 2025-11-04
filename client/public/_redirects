@@ -1,4 +1,4 @@
-/api/* https://petiq-api.onrender.com/api/:splat 200
-/docs/* https://petiq-api.onrender.com/docs/:splat 200
+/api/* https://petiq-server.onrender.com/api/:splat 200
+/docs/* https://petiq-server.onrender.com/docs/:splat 200
 /* /index.html 200
 

@@ -8,7 +8,11 @@ interface EmployeeRow {
 	work_email: string
 }
 
-const csvPath = path.join(process.cwd(), '..', 'petiq_employee_contacts.csv')
+// Prefer server-local data directory; fall back to legacy parent path for local dev
+const csvPath = process.env.EMPLOYEE_CSV_PATH ||
+  (fs.existsSync(path.join(process.cwd(), 'data', 'petiq_employee_contacts.csv'))
+    ? path.join(process.cwd(), 'data', 'petiq_employee_contacts.csv')
+    : path.join(process.cwd(), '..', 'petiq_employee_contacts.csv'))
 
 function parseCsv(raw: string): EmployeeRow[] {
 	const lines = raw.split(/\r?\n/).filter(Boolean)
