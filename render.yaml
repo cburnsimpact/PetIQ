@@ -26,4 +26,5 @@ services:
     rootDir: client
     buildCommand: npm install --no-audit --no-fund && npm run build
     publishPath: dist
+    autoDeploy: true
 
