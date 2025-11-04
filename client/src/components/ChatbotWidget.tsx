@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ChatbotWindow } from './ChatbotWindow'
 import './ChatbotWidget.css'
+import { useTranslation } from 'react-i18next'
 
 interface ChatbotWidgetProps {
 	isVerified: boolean
@@ -10,6 +11,7 @@ interface ChatbotWidgetProps {
 const ChatbotWidget = ({ isVerified, userEmail }: ChatbotWidgetProps) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const [openId, setOpenId] = useState<string | null>(null)
+  const { t } = useTranslation()
 
 	const toggleChatbot = () => {
 		if (!isOpen) {
@@ -23,7 +25,7 @@ const ChatbotWidget = ({ isVerified, userEmail }: ChatbotWidgetProps) => {
 			<button
 				className="chatbot-toggle"
 				onClick={toggleChatbot}
-				aria-label="Toggle chatbot"
+				aria-label={t('chat.headerTitle')}
 			>
 				{isOpen ? '✕' : '💬'}
 			</button>

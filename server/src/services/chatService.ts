@@ -47,6 +47,7 @@ interface ChatMessage {
   email: string
   conversationId: string
   userType: UserType
+  language?: 'en' | 'es'
 }
 
 interface ChatResponse {
@@ -56,7 +57,7 @@ interface ChatResponse {
 }
 
 export const chatService = {
-  processMessage: async ({ message, email, conversationId, userType }: ChatMessage): Promise<ChatResponse> => {
+  processMessage: async ({ message, email, conversationId, userType, language }: ChatMessage): Promise<ChatResponse> => {
     // 1. Triage: Categorize the message
     const triageResult = await triageService.categorize(message)
 
@@ -79,8 +80,14 @@ export const chatService = {
       ? `The user is an internal PetIQ employee. You may reference internal HR policies contained in the provided context and provide procedural guidance appropriate for employees.`
       : `The user is an external/guest user. Provide general HR information using the provided context. Do not disclose internal-only procedures or any personal data. If the question requires personal account details or restricted systems, explain the limitation and suggest contacting HR.`
 
+    const languageGuidance = language === 'es'
+      ? 'Responde en español claro y profesional.'
+      : 'Respond in English in a clear and professional tone.'
+
     const systemPrompt = `You are Scout HR Assistant for PetIQ.
 ${audienceGuidance}
+
+${languageGuidance}
 
 HR Context:
 ${hrContext}

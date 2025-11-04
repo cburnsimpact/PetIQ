@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './EmailHRModal.css'
+import { useTranslation } from 'react-i18next'
 
 interface EmailHRModalProps {
   isOpen: boolean
@@ -7,6 +8,7 @@ interface EmailHRModalProps {
 }
 
 export const EmailHRModal = ({ isOpen, onClose }: EmailHRModalProps) => {
+  const { t } = useTranslation()
   const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
   const [sent, setSent] = useState(false)
@@ -34,47 +36,47 @@ export const EmailHRModal = ({ isOpen, onClose }: EmailHRModalProps) => {
     <div className="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="emailHrTitle">
       <div className="modal">
         <div className="modal-header">
-          <h3 id="emailHrTitle">Email HR</h3>
-          <button className="close-button" onClick={onClose} aria-label="Close">✕</button>
+          <h3 id="emailHrTitle">{t('emailHR.title')}</h3>
+          <button className="close-button" onClick={onClose} aria-label={t('emailHR.close')}>✕</button>
         </div>
         <div className="modal-body">
           {!sent ? (
             <form onSubmit={submit} className="email-form">
               <div className="form-row">
-                <label htmlFor="emailTo">To</label>
+                <label htmlFor="emailTo">{t('emailHR.to')}</label>
                 <input id="emailTo" type="email" value="hr@petiq.com" readOnly />
               </div>
               <div className="form-row">
-                <label htmlFor="emailSubject">Subject</label>
+                <label htmlFor="emailSubject">{t('emailHR.subject')}</label>
                 <input
                   id="emailSubject"
                   type="text"
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
-                  placeholder="Question about benefits, PTO, payroll, etc."
+                  placeholder={t('emailHR.subjectPh')}
                   required
                 />
               </div>
               <div className="form-row">
-                <label htmlFor="emailMessage">Message</label>
+                <label htmlFor="emailMessage">{t('emailHR.message')}</label>
                 <textarea
                   id="emailMessage"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Provide details so HR can help you quickly."
+                  placeholder={t('emailHR.messagePh')}
                   rows={6}
                   required
                 />
               </div>
               <div className="actions">
-                <button type="button" className="secondary" onClick={onClose}>Cancel</button>
-                <button type="submit" className="primary">Send Email</button>
+                <button type="button" className="secondary" onClick={onClose}>{t('emailHR.cancel')}</button>
+                <button type="submit" className="primary">{t('emailHR.send')}</button>
               </div>
             </form>
           ) : (
             <div className="sent-state">
               <div className="sent-icon">✅</div>
-              <p>Your message was sent to hr@petiq.com. We will reply shortly.</p>
+              <p>{t('emailHR.sentMsg')}</p>
             </div>
           )}
         </div>

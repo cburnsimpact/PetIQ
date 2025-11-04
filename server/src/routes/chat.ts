@@ -9,7 +9,7 @@ export const chatRouter = Router()
 // Chat endpoint
 chatRouter.post('/', async (req, res) => {
   try {
-    const { message, email, conversationId } = req.body
+    const { message, email, conversationId, language } = req.body
 
     if (!message || !email) {
       return res.status(400).json({ error: 'Message and email are required' })
@@ -43,6 +43,7 @@ chatRouter.post('/', async (req, res) => {
       email,
       conversationId: convId,
       userType,
+      language,
     })
 
     // Log response

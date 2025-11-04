@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import axios from 'axios'
 import './VerificationFlow.css'
+import { useTranslation } from 'react-i18next'
 
 interface VerificationFlowProps {
   onVerificationComplete: (email: string) => void
 }
 
 export const VerificationFlow = ({ onVerificationComplete }: VerificationFlowProps) => {
+  const { t } = useTranslation()
   const [step, setStep] = useState(1)
   const [email, setEmail] = useState('')
   const [verificationCode, setVerificationCode] = useState('')
@@ -18,14 +20,14 @@ export const VerificationFlow = ({ onVerificationComplete }: VerificationFlowPro
     setError('')
     
     if (!email.trim()) {
-      setError('Please enter your email address')
+      setError(t('verify.errEnterEmail'))
       return
     }
 
     // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(email)) {
-      setError('Please enter a valid email address')
+      setError(t('verify.errValidEmail'))
       return
     }
 
@@ -34,7 +36,7 @@ export const VerificationFlow = ({ onVerificationComplete }: VerificationFlowPro
       await axios.post('/api/verification/initiate', { email })
       setStep(2)
     } catch (error: any) {
-      setError(error.response?.data?.error || 'Failed to send verification code. Please try again.')
+      setError(error.response?.data?.error || t('verify.errSendCode'))
     } finally {
       setIsLoading(false)
     }
@@ -45,7 +47,7 @@ export const VerificationFlow = ({ onVerificationComplete }: VerificationFlowPro
     setError('')
     
     if (!verificationCode.trim()) {
-      setError('Please enter the verification code')
+      setError(t('verify.errEnterCode'))
       return
     }
 
@@ -59,10 +61,10 @@ export const VerificationFlow = ({ onVerificationComplete }: VerificationFlowPro
       if (response.data.verified) {
         onVerificationComplete(email)
       } else {
-        setError('Invalid verification code. Please try again.')
+        setError(t('verify.errInvalid'))
       }
     } catch (error: any) {
-      setError(error.response?.data?.error || 'Verification failed. Please try again.')
+      setError(error.response?.data?.error || t('verify.errVerify'))
     } finally {
       setIsLoading(false)
     }
@@ -71,30 +73,30 @@ export const VerificationFlow = ({ onVerificationComplete }: VerificationFlowPro
   return (
     <div className="verification-flow">
       <div className="verification-header">
-        <h3>Identity Verification</h3>
-        <p>We need to verify your identity to ensure secure access to HR information.</p>
+        <h3>{t('verify.title')}</h3>
+        <p>{t('verify.subtitle')}</p>
       </div>
 
       {step === 1 && (
         <form onSubmit={handleEmailSubmit} className="verification-form">
           <div className="form-group">
-            <label htmlFor="email">Enter your email address</label>
+            <label htmlFor="email">{t('verify.enterEmail')}</label>
             <input
               type="email"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="your.email@example.com"
+              placeholder={t('verify.emailPh')}
               disabled={isLoading}
               autoFocus
             />
             <p className="form-hint">
-              This can be your personal email if you don't have a PetIQ email address.
+              {t('verify.emailHint')}
             </p>
           </div>
           {error && <div className="error-message">{error}</div>}
           <button type="submit" disabled={isLoading} className="submit-button">
-            {isLoading ? 'Sending...' : 'Send Verification Code'}
+            {isLoading ? t('verify.sending') : t('verify.sendCode')}
           </button>
         </form>
       )}
@@ -102,19 +104,19 @@ export const VerificationFlow = ({ onVerificationComplete }: VerificationFlowPro
       {step === 2 && (
         <form onSubmit={handleCodeVerify} className="verification-form">
           <div className="form-group">
-            <label htmlFor="code">Enter verification code</label>
+            <label htmlFor="code">{t('verify.enterCode')}</label>
             <input
               type="text"
               id="code"
               value={verificationCode}
               onChange={(e) => setVerificationCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
-              placeholder="000000"
+              placeholder={t('verify.codePh')}
               disabled={isLoading}
               autoFocus
               maxLength={6}
             />
             <p className="form-hint">
-              We sent a 6-digit code to {email}. Please check your inbox.
+              {t('verify.sentHint', { email })}
             </p>
           </div>
           {error && <div className="error-message">{error}</div>}
@@ -129,10 +131,10 @@ export const VerificationFlow = ({ onVerificationComplete }: VerificationFlowPro
               disabled={isLoading}
               className="secondary-button"
             >
-              Back
+              {t('verify.back')}
             </button>
             <button type="submit" disabled={isLoading} className="submit-button">
-              {isLoading ? 'Verifying...' : 'Verify Code'}
+              {isLoading ? t('verify.verifying') : t('verify.verifyCode')}
             </button>
           </div>
         </form>

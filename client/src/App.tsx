@@ -1,20 +1,30 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ChatbotWidget from './components/ChatbotWidget'
 import { EmailHRModal } from './components/EmailHRModal'
 import './App.css'
 import { Login } from './components/Login'
+import { HrAnalytics } from './components/HrAnalytics'
+import { useTranslation } from 'react-i18next'
 
 function App() {
+  const { t } = useTranslation()
   const [isEmailOpen, setIsEmailOpen] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [userEmail, setUserEmail] = useState<string | null>(null)
   const [firstName, setFirstName] = useState<string | null>(null)
+  const [isAnalytics, setIsAnalytics] = useState<boolean>(window.location.hash === '#/hr-analytics')
 
   const handleLoginSuccess = (workEmail: string, givenName?: string) => {
     setUserEmail(workEmail)
     setIsAuthenticated(true)
     if (givenName) setFirstName(givenName)
   }
+
+  useEffect(() => {
+    const onHashChange = () => setIsAnalytics(window.location.hash === '#/hr-analytics')
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [])
 
   return (
     <div className="app">
@@ -23,81 +33,84 @@ function App() {
       </a>
       <header className="app-header">
         <div className="brand">
-          <h1>PetIQ HR Center</h1>
+          <h1>{t('app.title')}</h1>
         </div>
-        <p>Get answers to your HR questions instantly</p>
+        <p>{t('app.subtitle')}</p>
       </header>
       <main className="app-main">
-        {!isAuthenticated ? (
+        {isAnalytics ? (
+          <div className="welcome-section">
+            <HrAnalytics />
+          </div>
+        ) : !isAuthenticated ? (
           <div className="welcome-section">
             <Login onSuccess={handleLoginSuccess} />
           </div>
         ) : (
           <div className="welcome-section">
             {firstName && (
-              <p style={{ fontSize: '18px', fontWeight: 600, margin: '0 0 8px 0' }}>Hi {firstName}!</p>
+              <p style={{ fontSize: '18px', fontWeight: 600, margin: '0 0 8px 0' }}>{t('appHome.welcomeHi', { name: firstName })}</p>
             )}
-            <h2>Welcome to PetIQ HR Center</h2>
+            <h2>{t('appHome.welcomeTitle')}</h2>
             <p>
-              Our AI-powered HR assistant is here to help you with questions about benefits, 
-              policies, open enrollment, time off, and more. Click the chat icon to get started.
+              {t('appHome.welcomeBody')}
             </p>
             <div className="features">
               <div className="feature-card">
-                <h3>🔒 Secure</h3>
-                <p>Identity verification ensures your information stays safe</p>
+                <h3>🔒 {t('appHome.featuresSecure')}</h3>
+                <p>{t('appHome.featuresSecureDesc')}</p>
               </div>
               <div className="feature-card">
-                <h3>⚡ Fast</h3>
-                <p>Get instant answers to your HR questions</p>
+                <h3>⚡ {t('appHome.featuresFast')}</h3>
+                <p>{t('appHome.featuresFastDesc')}</p>
               </div>
               <div className="feature-card">
-                <h3>📋 Comprehensive</h3>
-                <p>Answers based on PetIQ HR policies and benefits</p>
+                <h3>📋 {t('appHome.featuresComprehensive')}</h3>
+                <p>{t('appHome.featuresComprehensiveDesc')}</p>
               </div>
             </div>
 
             <div className="policy-docs">
-            <h3>Policy documents</h3>
+            <h3>{t('appHome.policyDocs')}</h3>
             <div className="policy-list">
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/BenefitsSummary2026.txt" target="_blank" rel="noopener noreferrer">Benefits Summary 2026</a></div>
+                <div className="policy-name"><a href="/docs/view/BenefitsSummary2026.txt" target="_blank" rel="noopener noreferrer">Benefits Summary 2026</a></div>
                 <div className="policy-desc">Overview of medical, dental, vision and coverage levels for the 2026 plan year.</div>
               </div>
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/CompensationandPayPolicy.txt" target="_blank" rel="noopener noreferrer">Compensation and Pay Policy</a></div>
+                <div className="policy-name"><a href="/docs/view/CompensationandPayPolicy.txt" target="_blank" rel="noopener noreferrer">Compensation and Pay Policy</a></div>
                 <div className="policy-desc">Pay structure, salary bands, overtime, payroll schedules, and adjustments.</div>
               </div>
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/EmployeeEligibilityRequirements.txt" target="_blank" rel="noopener noreferrer">Employee Eligibility Requirements</a></div>
+                <div className="policy-name"><a href="/docs/view/EmployeeEligibilityRequirements.txt" target="_blank" rel="noopener noreferrer">Employee Eligibility Requirements</a></div>
                 <div className="policy-desc">Eligibility criteria for employment status and benefits participation.</div>
               </div>
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/FSAEnrollmentGuide.txt" target="_blank" rel="noopener noreferrer">FSA Enrollment Guide</a></div>
+                <div className="policy-name"><a href="/docs/view/FSAEnrollmentGuide.txt" target="_blank" rel="noopener noreferrer">FSA Enrollment Guide</a></div>
                 <div className="policy-desc">How to enroll in Flexible Spending Accounts, eligible expenses, and annual limits.</div>
               </div>
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/NewHireBenefitsChecklist.txt" target="_blank" rel="noopener noreferrer">New Hire Benefits Checklist</a></div>
+                <div className="policy-name"><a href="/docs/view/NewHireBenefitsChecklist.txt" target="_blank" rel="noopener noreferrer">New Hire Benefits Checklist</a></div>
                 <div className="policy-desc">Step-by-step checklist for new employees to select and enroll in benefits.</div>
               </div>
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/OpenEnrollmentAnnouncement.txt" target="_blank" rel="noopener noreferrer">Open Enrollment Announcement</a></div>
+                <div className="policy-name"><a href="/docs/view/OpenEnrollmentAnnouncement.txt" target="_blank" rel="noopener noreferrer">Open Enrollment Announcement</a></div>
                 <div className="policy-desc">Key dates, deadlines, and instructions for the upcoming open enrollment period.</div>
               </div>
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/PetIQOpenEnrollmentDocuments.txt" target="_blank" rel="noopener noreferrer">Open Enrollment Documents</a></div>
+                <div className="policy-name"><a href="/docs/view/PetIQOpenEnrollmentDocuments.txt" target="_blank" rel="noopener noreferrer">Open Enrollment Documents</a></div>
                 <div className="policy-desc">Packet of forms and resources needed to complete open enrollment.</div>
               </div>
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/PTOandSickTimePolicy.txt" target="_blank" rel="noopener noreferrer">PTO and Sick Time Policy</a></div>
+                <div className="policy-name"><a href="/docs/view/PTOandSickTimePolicy.txt" target="_blank" rel="noopener noreferrer">PTO and Sick Time Policy</a></div>
                 <div className="policy-desc">Accrual rules, request process, holiday observances, and sick time usage.</div>
               </div>
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/QualifyingLifeEventsGuide.txt" target="_blank" rel="noopener noreferrer">Qualifying Life Events Guide</a></div>
+                <div className="policy-name"><a href="/docs/view/QualifyingLifeEventsGuide.txt" target="_blank" rel="noopener noreferrer">Qualifying Life Events Guide</a></div>
                 <div className="policy-desc">What counts as a QLE and how to make mid-year benefits changes.</div>
               </div>
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/RemoteWorkPolicy.txt" target="_blank" rel="noopener noreferrer">Remote Work Policy</a></div>
+                <div className="policy-name"><a href="/docs/view/RemoteWorkPolicy.txt" target="_blank" rel="noopener noreferrer">Remote Work Policy</a></div>
                 <div className="policy-desc">Expectations, eligibility, equipment, and security guidelines for remote work.</div>
               </div>
             </div>
@@ -214,13 +227,13 @@ function App() {
 
           <div className="contact-hr-cta">
             <button className="email-hr-cta" onClick={() => setIsEmailOpen(true)}>
-              Not finding what you're looking for? Click here to email HR directly
+              {t('appHome.contactCta')}
             </button>
 				</div>
           </div>
         )}
       </main>
-      {isAuthenticated && <ChatbotWidget isVerified={true} userEmail={userEmail || ''} />}
+      {!isAnalytics && isAuthenticated && <ChatbotWidget isVerified={true} userEmail={userEmail || ''} />}
       <EmailHRModal isOpen={isEmailOpen} onClose={() => setIsEmailOpen(false)} />
     </div>
   )

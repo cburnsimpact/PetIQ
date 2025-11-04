@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 type Attachment = { name: string; url: string }
 
@@ -24,6 +25,7 @@ export const EmailPreviewModal: React.FC<EmailPreviewModalProps> = ({
   onShareWithHRChange,
 }) => {
   if (!open) return null
+  const { t } = useTranslation()
   const [sent, setSent] = useState(false)
   const [showToast, setShowToast] = useState(false)
   const [isFading, setIsFading] = useState(false)
@@ -46,20 +48,20 @@ export const EmailPreviewModal: React.FC<EmailPreviewModalProps> = ({
     <div className={`modal-overlay${isFading ? ' fade-out' : ''}`}>
       <div className="modal">
         <div className="modal-header">
-          <h4>Email Preview</h4>
+          <h4>{t('previewEmail.title')}</h4>
           <button className="close-button" onClick={onClose}>✕</button>
         </div>
         <div className="modal-body">
           <div className="email-meta">
-            <div><strong>To:</strong> {to}</div>
-            <div><strong>Subject:</strong> {subject}</div>
+            <div><strong>{t('previewEmail.to')}:</strong> {to}</div>
+            <div><strong>{t('previewEmail.subject')}:</strong> {subject}</div>
           </div>
           <div className="email-body">
             <pre>{body}</pre>
           </div>
           {attachments?.length ? (
             <div className="attachments">
-              <div className="attachments-title">Attachments</div>
+              <div className="attachments-title">{t('previewEmail.attachments')}</div>
               <ul className="attachments-list">
                 {attachments.map(a => (
                   <li key={a.name} className="attachment-item">
@@ -77,17 +79,17 @@ export const EmailPreviewModal: React.FC<EmailPreviewModalProps> = ({
               checked={shareWithHR}
               onChange={(e) => onShareWithHRChange(e.target.checked)}
             />
-            Also share this transcript with HR
+            {t('previewEmail.shareWithHr')}
           </label>
           <button className="send-button" onClick={handleSend} disabled={sent}>
-            {sent ? 'Sent' : 'Send Email'}
+            {sent ? t('previewEmail.sent') : t('previewEmail.sendEmail')}
           </button>
-          <button className="send-button" onClick={onClose}>Close</button>
+          <button className="send-button" onClick={onClose}>{t('previewEmail.close')}</button>
         </div>
       </div>
       {showToast && (
         <div className={`toast${isFading ? ' fade-out' : ''}`}>
-          Email sent successfully{shareWithHR ? ' and shared with HR.' : '.'}
+          {t('previewEmail.toast', { shared: shareWithHR ? t('previewEmail.toastShared') : '.' })}
         </div>
       )}
     </div>

@@ -5,6 +5,7 @@ import path from 'path'
 import { verificationRouter } from './routes/verification.js'
 import { chatRouter } from './routes/chat.js'
 import { auditRouter } from './routes/audit.js'
+import { publicDocsRouter } from './routes/publicDocs.js'
 import { docsRouter } from './routes/docs.js'
 import { authRouter } from './routes/auth.js'
 
@@ -29,7 +30,8 @@ app.use('/api/chat', chatRouter)
 app.use('/api/audit', auditRouter)
 app.use('/api/docs', docsRouter)
 
-// Static policy documents
+// Public document viewer and static policy documents
+app.use('/docs', publicDocsRouter)
 const docsDir = path.join(process.cwd(), '..', 'PetIQ HR Docs')
 app.use('/docs', express.static(docsDir))
 

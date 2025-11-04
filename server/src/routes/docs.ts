@@ -13,7 +13,7 @@ docsRouter.get('/suggest', async (req, res) => {
     const names = Array.from(context.matchAll(/^===\s*(.+?)\s*===/gm)).map(m => m[1]).slice(0, 5)
     const attachments = names.map(name => ({
       name,
-      url: `/docs/${encodeURIComponent(name)}`,
+      url: `/docs/view/${encodeURIComponent(name)}`,
     }))
 
     res.json({ attachments })

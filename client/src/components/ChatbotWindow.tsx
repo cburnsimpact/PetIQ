@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from 'react'
 import axios from 'axios'
 import './ChatbotWindow.css'
 import { EmailPreviewModal } from './EmailPreviewModal'
+import { useTranslation } from 'react-i18next'
+import i18n from '../i18n'
 
 interface Message {
   id: string
@@ -25,19 +27,15 @@ export const ChatbotWindow = ({
   openId,
   onClose,
 }: ChatbotWindowProps) => {
+  const { t } = useTranslation()
   const isInternal = ((userEmail || '').toLowerCase().split('@')[1] || '').endsWith('petiq.com')
   const getWelcomeMessage = () => {
-    const followups = [
-      'How can I help you today?',
-      "I'm here to answer all your HR-related questions.",
-      'Ask me about benefits, PTO, or HR policies.',
-    ]
-    const intro = "Hi, I'm Scout, your HR assistant."
-    const pick = followups[Math.floor(Math.random() * followups.length)]
-    return `${intro} ${pick}`
+    const followups = (t('chat.welcomeFollowups', { returnObjects: true }) as string[]) || []
+    const intro = t('chat.welcomeIntro')
+    const pick = followups[Math.floor(Math.random() * (followups.length || 1))] || ''
+    return `${intro} ${pick}`.trim()
   }
   const [messages, setMessages] = useState<Message[]>([])
-  const [welcomed, setWelcomed] = useState<boolean>(false)
   const [inputText, setInputText] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -78,7 +76,6 @@ export const ChatbotWindow = ({
       feedback: null,
     }
     setMessages((prev) => [...prev, botMessage])
-    setWelcomed(true)
     sessionStorage.setItem(WELCOME_KEY, '1')
   }, [isVerified, openId])
 
@@ -159,6 +156,7 @@ export const ChatbotWindow = ({
         message: inputText,
         email: userEmail,
         conversationId: conversationIdRef.current,
+        language: i18n.language === 'es' ? 'es' : 'en',
       })
 
       if (!conversationIdRef.current) {
@@ -197,7 +195,7 @@ export const ChatbotWindow = ({
       console.error('Error sending message:', error)
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: 'Sorry, I encountered an error. Please try again.',
+        text: t('chat.error'),
         sender: 'bot',
         timestamp: new Date(),
         feedback: null,
@@ -330,15 +328,15 @@ export const ChatbotWindow = ({
 
   return (
     <div className={`chatbot-window ${isExpanded ? 'expanded' : ''}`}>
-      <div className="chatbot-header">
+        <div className="chatbot-header">
         <div>
-          <h3>Scout HR Assistant</h3>
+          <h3>{t('chat.headerTitle')}</h3>
           <div className="user-ident">
             <p className="user-email">{userEmail}</p>
           </div>
           {!isInternal && (
             <p className="capability-note">
-              {'General HR documentation available. No personal account info.'}
+              {t('chat.guestNote')}
             </p>
           )}
         </div>
@@ -346,8 +344,8 @@ export const ChatbotWindow = ({
           <button
             className="expand-button"
             onClick={() => setIsExpanded(!isExpanded)}
-            title={isExpanded ? 'Shrink chat window' : 'Expand chat window'}
-            aria-label={isExpanded ? 'Shrink chat window' : 'Expand chat window'}
+            title={isExpanded ? t('chat.shrink') : t('chat.expand')}
+            aria-label={isExpanded ? t('chat.shrink') : t('chat.expand')}
           >
             {isExpanded ? '⤡' : '⤢'}
           </button>
@@ -355,8 +353,8 @@ export const ChatbotWindow = ({
             className="email-button"
             onClick={openEmailPreview}
             disabled={!messages.length}
-            title="Email chat transcript"
-            aria-label="Email chat transcript"
+            title={t('chat.emailTranscript')}
+            aria-label={t('chat.emailTranscript')}
           >
             📧
           </button>
@@ -385,7 +383,7 @@ export const ChatbotWindow = ({
                   <button
                     className={`thumb up ${message.feedback === 'up' ? 'selected' : ''}`}
                     onClick={() => setMessageFeedback(message.id, 'up')}
-                    title="Helpful"
+                  title={t('chat.helpful')}
                     aria-pressed={message.feedback === 'up'}
                   >
                     👍
@@ -393,19 +391,19 @@ export const ChatbotWindow = ({
                   <button
                     className={`thumb down ${message.feedback === 'down' ? 'selected' : ''}`}
                     onClick={() => setMessageFeedback(message.id, 'down')}
-                    title="Not helpful"
+                  title={t('chat.notHelpful')}
                     aria-pressed={message.feedback === 'down'}
                   >
                     👎
                   </button>
                   {message.feedback && (
-                    <span className="feedback-thanks">Thanks for the feedback!</span>
+                  <span className="feedback-thanks">{t('chat.thanksFeedback')}</span>
                   )}
                 </div>
               )}
 
               {message.status === 'sending' && (
-                <div className="message-status">Sending...</div>
+              <div className="message-status">{t('chat.typing')}</div>
               )}
             </div>
           ))}
@@ -423,10 +421,10 @@ export const ChatbotWindow = ({
           {hrPromptVisible && (
             <div className="message bot-message">
               <div className="message-content hr-escalation-card">
-                <p>It looks like I may not have fully answered your question. Would you like me to draft an email to HR?</p>
+                <p>{t('chat.hrPrompt')}</p>
                 <div className="hr-actions">
-                  <button className="send-button" onClick={openHrDraftPreview}>Draft Email to HR</button>
-                  <button className="secondary-button" onClick={() => setHrPromptVisible(false)}>No thanks</button>
+                  <button className="send-button" onClick={openHrDraftPreview}>{t('chat.hrDraft')}</button>
+                  <button className="secondary-button" onClick={() => setHrPromptVisible(false)}>{t('chat.noThanks')}</button>
                 </div>
               </div>
             </div>
@@ -438,7 +436,7 @@ export const ChatbotWindow = ({
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Type your HR question here..."
+            placeholder={t('chat.placeholder')}
             rows={2}
             disabled={isLoading}
           />
@@ -447,7 +445,7 @@ export const ChatbotWindow = ({
             disabled={!inputText.trim() || isLoading}
             className="send-button"
           >
-            Send
+            {t('chat.send')}
           </button>
         </div>
       </div>
