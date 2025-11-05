@@ -61,43 +61,43 @@ function App() {
             <h3>{t('appHome.policyDocs')}</h3>
             <div className="policy-list">
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/view/BenefitsSummary2026.txt" target="_blank" rel="noopener noreferrer">Benefits Summary 2026</a></div>
+                <div className="policy-name"><a href="https://petiq-client.onrender.com/docs/view/BenefitsSummary2026.txt" target="_blank" rel="noopener noreferrer">Benefits Summary 2026</a></div>
                 <div className="policy-desc">Overview of medical, dental, vision and coverage levels for the 2026 plan year.</div>
               </div>
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/view/CompensationandPayPolicy.txt" target="_blank" rel="noopener noreferrer">Compensation and Pay Policy</a></div>
+                <div className="policy-name"><a href="https://petiq-client.onrender.com/docs/view/CompensationandPayPolicy.txt" target="_blank" rel="noopener noreferrer">Compensation and Pay Policy</a></div>
                 <div className="policy-desc">Pay structure, salary bands, overtime, payroll schedules, and adjustments.</div>
               </div>
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/view/EmployeeEligibilityRequirements.txt" target="_blank" rel="noopener noreferrer">Employee Eligibility Requirements</a></div>
+                <div className="policy-name"><a href="https://petiq-client.onrender.com/docs/view/EmployeeEligibilityRequirements.txt" target="_blank" rel="noopener noreferrer">Employee Eligibility Requirements</a></div>
                 <div className="policy-desc">Eligibility criteria for employment status and benefits participation.</div>
               </div>
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/view/FSAEnrollmentGuide.txt" target="_blank" rel="noopener noreferrer">FSA Enrollment Guide</a></div>
+                <div className="policy-name"><a href="https://petiq-client.onrender.com/docs/view/FSAEnrollmentGuide.txt" target="_blank" rel="noopener noreferrer">FSA Enrollment Guide</a></div>
                 <div className="policy-desc">How to enroll in Flexible Spending Accounts, eligible expenses, and annual limits.</div>
               </div>
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/view/NewHireBenefitsChecklist.txt" target="_blank" rel="noopener noreferrer">New Hire Benefits Checklist</a></div>
+                <div className="policy-name"><a href="https://petiq-client.onrender.com/docs/view/NewHireBenefitsChecklist.txt" target="_blank" rel="noopener noreferrer">New Hire Benefits Checklist</a></div>
                 <div className="policy-desc">Step-by-step checklist for new employees to select and enroll in benefits.</div>
               </div>
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/view/OpenEnrollmentAnnouncement.txt" target="_blank" rel="noopener noreferrer">Open Enrollment Announcement</a></div>
+                <div className="policy-name"><a href="https://petiq-client.onrender.com/docs/view/OpenEnrollmentAnnouncement.txt" target="_blank" rel="noopener noreferrer">Open Enrollment Announcement</a></div>
                 <div className="policy-desc">Key dates, deadlines, and instructions for the upcoming open enrollment period.</div>
               </div>
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/view/PetIQOpenEnrollmentDocuments.txt" target="_blank" rel="noopener noreferrer">Open Enrollment Documents</a></div>
+                <div className="policy-name"><a href="https://petiq-client.onrender.com/docs/view/PetIQOpenEnrollmentDocuments.txt" target="_blank" rel="noopener noreferrer">Open Enrollment Documents</a></div>
                 <div className="policy-desc">Packet of forms and resources needed to complete open enrollment.</div>
               </div>
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/view/PTOandSickTimePolicy.txt" target="_blank" rel="noopener noreferrer">PTO and Sick Time Policy</a></div>
+                <div className="policy-name"><a href="https://petiq-client.onrender.com/docs/view/PTOandSickTimePolicy.txt" target="_blank" rel="noopener noreferrer">PTO and Sick Time Policy</a></div>
                 <div className="policy-desc">Accrual rules, request process, holiday observances, and sick time usage.</div>
               </div>
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/view/QualifyingLifeEventsGuide.txt" target="_blank" rel="noopener noreferrer">Qualifying Life Events Guide</a></div>
+                <div className="policy-name"><a href="https://petiq-client.onrender.com/docs/view/QualifyingLifeEventsGuide.txt" target="_blank" rel="noopener noreferrer">Qualifying Life Events Guide</a></div>
                 <div className="policy-desc">What counts as a QLE and how to make mid-year benefits changes.</div>
               </div>
               <div className="policy-row">
-                <div className="policy-name"><a href="/docs/view/RemoteWorkPolicy.txt" target="_blank" rel="noopener noreferrer">Remote Work Policy</a></div>
+                <div className="policy-name"><a href="https://petiq-client.onrender.com/docs/view/RemoteWorkPolicy.txt" target="_blank" rel="noopener noreferrer">Remote Work Policy</a></div>
                 <div className="policy-desc">Expectations, eligibility, equipment, and security guidelines for remote work.</div>
               </div>
             </div>
