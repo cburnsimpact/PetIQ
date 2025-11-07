@@ -4,6 +4,8 @@ import './ChatbotWindow.css'
 import { EmailPreviewModal } from './EmailPreviewModal'
 import { useTranslation } from 'react-i18next'
 import i18n from '../i18n'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 interface Message {
   id: string
@@ -369,7 +371,16 @@ export const ChatbotWindow = ({
               className={`message ${message.sender === 'user' ? 'user-message' : 'bot-message'}`}
             >
               <div className="message-content">
-                <p>{message.text}</p>
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    a: ({ node, ...props }) => (
+                      <a {...props} target="_blank" rel="noopener noreferrer" />
+                    ),
+                  }}
+                >
+                  {message.text}
+                </ReactMarkdown>
                 <span className="message-time">
                   {message.timestamp.toLocaleTimeString([], {
                     hour: '2-digit',
